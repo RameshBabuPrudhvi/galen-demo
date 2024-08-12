@@ -4,7 +4,7 @@
     searchButton      css      input.nav-input[type='submit']
     signInButton      css      a#nav-link-accountList
     cartButton        id       nav-cart
-    mainContent       css      div#main
+    mainContent       css      div#main-content
     footer            id       navFooter
 
 = Header Validation =
@@ -15,31 +15,31 @@
 = Search Box Validation =
     searchBox:
         below header -89px
-        centered horizontally inside screen
-        width 408px
-        height 39px
+        centered horizontally inside screen 37px
+        width 405px
+        height 38px
 
 = Search Button Validation =
     searchButton:
-        right-of searchBox 10px
-        aligned horizontally all searchBox
+        right-of searchBox 0px
+        aligned horizontally all searchBox 2px
 
 = Sign In Button Validation =
     signInButton:
-        above searchBox 20px
-        aligned horizontally all header
+        above searchBox -45px
+        aligned horizontally all header 55px
 
 = Cart Button Validation =
     cartButton:
-        above searchBox 20px
-        aligned horizontally all header
+        above searchBox -45px
+        aligned horizontally all header 55px
 
 = Main Content Validation =
     mainContent:
-        below header 60px
-        width 100% of screen/width
+        below header 1130px
+        width 98% of screen/width
 
 = Footer Validation =
     footer:
-        below mainContent 40px
+        below mainContent 45px
         width 100% of screen/width

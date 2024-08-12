@@ -24,7 +24,7 @@ public class AmazonHomePageTest {
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         driver = new ChromeDriver();
-        driver.manage().window().setSize(new Dimension(1600, 1200));
+        driver.manage().window().maximize();
     }
 
     @Test
