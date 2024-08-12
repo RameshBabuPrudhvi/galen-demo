@@ -1,0 +1,45 @@
+@objects
+    header            id       nav-main
+    searchBox         id       twotabsearchtextbox
+    searchButton      css      input.nav-input[type='submit']
+    signInButton      css      a#nav-link-accountList
+    cartButton        id       nav-cart
+    mainContent       css      div#main
+    footer            id       navFooter
+
+= Header Validation =
+    header:
+        height 39px
+        width 100% of screen/width
+
+= Search Box Validation =
+    searchBox:
+        below header -89px
+        centered horizontally inside screen
+        width 408px
+        height 39px
+
+= Search Button Validation =
+    searchButton:
+        right-of searchBox 10px
+        aligned horizontally all searchBox
+
+= Sign In Button Validation =
+    signInButton:
+        above searchBox 20px
+        aligned horizontally all header
+
+= Cart Button Validation =
+    cartButton:
+        above searchBox 20px
+        aligned horizontally all header
+
+= Main Content Validation =
+    mainContent:
+        below header 60px
+        width 100% of screen/width
+
+= Footer Validation =
+    footer:
+        below mainContent 40px
+        width 100% of screen/width
