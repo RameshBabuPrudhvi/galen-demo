@@ -8,43 +8,46 @@
     tableRow             css .main-content > div > div > div:first-child table tr:first-child
     tableCell            css .main-content > div > div > div:first-child table tr:first-child td:first-child
 
-= General Layout =
-    screen:
-        inside screen 0px top
-
 = Table Layout =
-    tableTitle:
-        width 71% of screen/width
-        below screen -391px
+    tableTitle, tableSubTitle:
+        inside screen 50px right
 
     tableSubTitle:
+        above table 27px
         below tableTitle 3px
+        height 24px
 
-    table:
-        width 71% of screen/width
-        below tableSubTitle 27px
+    tableTitle:
+        height 25px
+
+= Table elements =
+    tableCell:
+        inside tableRow 0px top left bottom
+
+    tableBody:
+        below tableHead 0px
+        inside table 0px left right bottom
+
+    tableHead, tableHeaderCell:
+        height 48px
+
+    tableHeaderCell, tableCell:
+        width 76px
+
+    tableRow, tableCell:
+        height 49px
+
+    tableRow:
+        centered horizontally inside tableBody 1px
+        inside tableBody 0px top left right
 
     tableHead:
-        width 100% of table/width
-        below table -340px
+        inside table 0px top left right
         css background-color is "rgba(37, 150, 190, 1)"
         css color is "rgba(255, 255, 255, 1)"
 
+    tableHead, tableBody:
+        centered horizontally inside table 1px
+
     tableHeaderCell:
-       width 8% of table/width
-       height 48px
-       css font-size is "15.2px"
-
-    tableBody:
-        width 100% of table/width
-        below tableHead 0px
-
-    tableRow:
-        width 100% of tableBody/width
-        height 49px
-        below tableBody -292px
-
-    tableCell:
-        width 8% of tableRow/width
-        height 49px
-        inside tableRow 0px left
+        inside tableHead 0px top left bottom
