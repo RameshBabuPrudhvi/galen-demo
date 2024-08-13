@@ -3,6 +3,7 @@
     tableSubTitle        css .main-content > div > div > div:first-child p
     table                css .main-content > div > div > div:first-child table
     tableHead            css .main-content > div > div > div:first-child table thead
+    tableHeaderCell      css .main-content > div > div > div:first-child table thead th
     tableBody            css .main-content > div > div > div:first-child table tbody
     tableRow             css .main-content > div > div > div:first-child table tr:first-child
     tableCell            css .main-content > div > div > div:first-child table tr:first-child td:first-child
@@ -26,6 +27,13 @@
     tableHead:
         width 100% of table/width
         below table -340px
+        css background-color is "rgba(37, 150, 190, 1)"
+        css color is "rgba(255, 255, 255, 1)"
+
+    tableHeaderCell:
+       width 8% of table/width
+       height 48px
+       css font-size is "15.2px"
 
     tableBody:
         width 100% of table/width
