@@ -5,8 +5,8 @@
     tableHead            css .main-content > div > div > div:first-child table thead
     tableHeaderCell      css .main-content > div > div > div:first-child table thead th
     tableBody            css .main-content > div > div > div:first-child table tbody
-    tableRow             css .main-content > div > div > div:first-child table tr:first-child
-    tableCell            css .main-content > div > div > div:first-child table tr:first-child td:first-child
+    tableRow             css .main-content > div > div > div:first-child table tr
+    tableCell            css .main-content > div > div > div:first-child table tr:first-child td
 
 = Table Layout =
     tableTitle, tableSubTitle:
@@ -33,6 +33,7 @@
 
     tableHeaderCell, tableCell:
         width 76px
+        css text-align is "left"
 
     tableRow, tableCell:
         height 49px
