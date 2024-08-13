@@ -1,0 +1,25 @@
+@objects
+    usedSpaceCard        css .main-content > div > .row:nth-child(1) > div:nth-child(1) > .card.card-stats
+    revenueCard          css .main-content > div > .row:nth-child(1) > div:nth-child(2) > .card.card-stats
+    fixedIssuesCard      css .main-content > div > .row:nth-child(1) > div:nth-child(3) > .card.card-stats
+
+= General Layout =
+    screen:
+        inside screen 0px top
+
+= Card Layout =
+    usedSpaceCard:
+        width 17% of screen/width
+        height approximately 163px
+        below screen -403px
+
+    revenueCard:
+        width 17% of screen/width
+        height approximately 161px
+        right-of usedSpaceCard 29px
+
+    fixedIssuesCard:
+        width 17% of screen/width
+        height approximately 126px
+        right-of revenueCard 30px
+

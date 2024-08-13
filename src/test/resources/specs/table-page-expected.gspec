@@ -1,0 +1,42 @@
+@objects
+    tableTitle           css .main-content > div > div > div:first-child h4
+    tableSubTitle        css .main-content > div > div > div:first-child p
+    table                css .main-content > div > div > div:first-child table
+    tableHead            css .main-content > div > div > div:first-child table thead
+    tableBody            css .main-content > div > div > div:first-child table tbody
+    tableRow             css .main-content > div > div > div:first-child table tr:first-child
+    tableCell            css .main-content > div > div > div:first-child table tr:first-child td:first-child
+
+= General Layout =
+    screen:
+        inside screen 0px top
+
+= Table Layout =
+    tableTitle:
+        width 71% of screen/width
+        below screen -391px
+
+    tableSubTitle:
+        below tableTitle 3px
+
+    table:
+        width 71% of screen/width
+        below tableSubTitle 27px
+
+    tableHead:
+        width 100% of table/width
+        below table -340px
+
+    tableBody:
+        width 100% of table/width
+        below tableHead 0px
+
+    tableRow:
+        width 100% of tableBody/width
+        height 49px
+        below tableBody -292px
+
+    tableCell:
+        width 8% of tableRow/width
+        height 49px
+        inside tableRow 0px left

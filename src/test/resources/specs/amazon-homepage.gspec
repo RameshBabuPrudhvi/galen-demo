@@ -9,14 +9,14 @@
 
 = Header Validation =
     header:
-        height 39px
+        height 38px
         width 100% of screen/width
 
 = Search Box Validation =
     searchBox:
         below header -89px
         centered horizontally inside screen 37px
-        width 405px
+        width 406px
         height 38px
 
 = Search Button Validation =

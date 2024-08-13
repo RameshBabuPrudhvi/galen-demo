@@ -12,8 +12,8 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <selenium.version>3.14.0</selenium.version>
-        <galen.version>2.4.4</galen.version>
+        <selenium.version>3.141.59</selenium.version>
+        <galen.version>2.3.2</galen.version>
         <testng.version>7.10.2</testng.version>
     </properties>
     <dependencies>
