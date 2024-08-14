@@ -19,10 +19,12 @@ public class DashboardTest extends TestFixer {
 
         return new Object[][]{
                 //{DASHBOARD_URL, "src/test/resources/specs/dashboard-page-expected.gspec", "Dashboard layout test"},
-                {dashboardUrl, "src/test/resources/specs/layout.gspec", "Layout Validation Test", "layoutCheck"},
-                {dashboardUrl, "src/test/resources/specs/font.gspec", "Font Validation Test", "fontCheck"},
+                {dashboardUrl, "src/test/resources/specs/size.gspec", "Dashboard Dimensions Validation Test", "sizeCheck"},
+                {dashboardUrl, "src/test/resources/specs/position.gspec", "Dashboard Position Validation Test", "positionCheck"},
+                {dashboardUrl, "src/test/resources/specs/aligned.gspec", "Dashboard Alignment Validation Test", "alignmentCheck"},
+                {dashboardUrl, "src/test/resources/specs/font.gspec", "Dashboard Font Validation Test", "fontCheck"},
                 {dashboardUrl, "src/test/resources/specs/logo.gspec", "Image Comparison Test", "imgCheck"},
-                {tableUrl, "src/test/resources/specs/color.gspec", "Color Validation Test", "colorCheck"},
+                {tableUrl, "src/test/resources/specs/color.gspec", "Table Color Validation Test", "colorCheck"},
                 {tableUrl, "src/test/resources/specs/tableLayout.gspec", "Table Layout Validation Test", "layoutCheck"}
                 //{TABLE_URL, "src/test/resources/specs/table-page-expected.gspec", "Table layout test"}
         };

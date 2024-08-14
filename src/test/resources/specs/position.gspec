@@ -1,0 +1,11 @@
+@objects
+    usedSpaceCard        xpath //div[contains(normalize-space(),'Used Space')][@class='card card-stats']
+    revenueCard          xpath //div[contains(normalize-space(),'Revenue')][@class='card card-stats']
+    fixedIssuesCard      xpath //div[contains(normalize-space(),'Fixed Issues')][@class='card card-stats']
+
+= Dashboard Position =
+    revenueCard:
+        right-of usedSpaceCard 30px
+
+    fixedIssuesCard:
+        right-of revenueCard 30px

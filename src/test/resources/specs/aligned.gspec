@@ -1,0 +1,15 @@
+@objects
+    card-*          xpath //div[@class='row']/div
+
+= Card Font =
+
+    card-1:
+        aligned horizontally all card-2 2px
+        aligned vertically all card-4
+
+    card-2:
+        aligned horizontally all card-3
+        aligned vertically all card-5
+
+    card-3:
+        aligned vertically all card-6
