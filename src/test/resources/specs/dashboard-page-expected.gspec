@@ -2,15 +2,11 @@
     usedSpaceCard        css .main-content > div > .row:nth-child(1) > div:nth-child(1) > .card.card-stats
     revenueCard          css .main-content > div > .row:nth-child(1) > div:nth-child(2) > .card.card-stats
     fixedIssuesCard      css .main-content > div > .row:nth-child(1) > div:nth-child(3) > .card.card-stats
-    cardTitle-*           xpath //div[@class='main-content']/div/div[1]//h3[@class='card-title']
-    cardCategory-*           xpath //div[@class='main-content']/div/div[1]//p[@class='card-category']
+    cardTitle-*          xpath //div[@class='main-content']/div/div[1]//h3[@class='card-title']
+    cardCategory-*       xpath //div[@class='main-content']/div/div[1]//p[@class='card-category']
 
 @script
     categories = ["Used Space", "Revenue", "Fixed Issues"];
-
-= General Layout =
-    screen:
-        inside screen 0px top
 
 = Card Layout =
     usedSpaceCard, revenueCard, fixedIssuesCard:
