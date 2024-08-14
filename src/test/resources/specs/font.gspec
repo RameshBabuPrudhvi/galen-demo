@@ -1,0 +1,17 @@
+@objects
+    cardTitle-*          xpath //div[@class='main-content']/div/div[1]//h3[@class='card-title']
+    cardCategory-*       xpath //div[@class='main-content']/div/div[1]//p[@class='card-category']
+
+@script
+    categories = ["Used Space", "Revenue", "Fixed Issues"];
+
+= Card Font =
+
+    @forEach [cardTitle-*] as title
+        ${title}:
+            css font-size is "25px"
+
+    @forEach [cardCategory-*] as category, index as i
+            ${category}:
+                css font-size is "14px"
+                text is "${categories[i-1]}"

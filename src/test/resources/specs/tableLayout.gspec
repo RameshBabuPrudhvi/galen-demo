@@ -1,0 +1,53 @@
+@objects
+    tableTitle           css .main-content > div > div > div:first-child h4
+    tableSubTitle        css .main-content > div > div > div:first-child p
+    table                css .main-content > div > div > div:first-child table
+    tableHead            css .main-content > div > div > div:first-child table thead
+    tableHeaders-*       css .main-content > div > div > div:first-child table thead th
+    tableBody            css .main-content > div > div > div:first-child table tbody
+    tableRow             css .main-content > div > div > div:first-child table tr
+    tableCell            css .main-content > div > div > div:first-child table tr:first-child td
+
+@script
+    headerNames = ["ID", "Name", "City","Country","Salary"];
+
+= Table Layout =
+    tableTitle, tableSubTitle:
+        inside screen 50px right
+
+    tableSubTitle:
+        above table 27px
+        below tableTitle 3px
+        height 24px
+
+    tableTitle:
+        height 25px
+
+= Table elements =
+    tableCell:
+        inside tableRow 0px top left bottom
+
+    tableBody:
+        below tableHead 0px
+        inside table 0px left right bottom
+
+    tableRow, tableCell:
+        height 49px
+
+    tableRow:
+        centered horizontally inside tableBody 1px
+        inside tableBody 0px top left right
+
+    tableHead:
+        inside table 0px top left right
+
+    tableHead, tableBody:
+        centered horizontally inside table 1px
+
+    @forEach [tableHeaders-*] as headerCell, index as i
+            ${headerCell}:
+                css text-align is "left"
+                height 48px
+                text is "${headerNames[i-1]}"
+
+

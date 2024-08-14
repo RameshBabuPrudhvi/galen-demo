@@ -14,7 +14,9 @@ import java.util.List;
 public class TestFixer {
     WebDriver driver;
     static final String REPORT_PATH = "target/galen-reports";
+    boolean isCurrentEnvironment = false;
     List<GalenTestInfo> testInfo = new ArrayList<>();
+
     @BeforeClass
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
