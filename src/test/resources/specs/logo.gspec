@@ -1,0 +1,8 @@
+@objects
+    logo           //div[@class='logo-img']/img
+= Skeleton =
+    logo:
+        height 35px
+        inside screen 16px top, 30px left
+        width 35px
+        image file logo.jpg, error 754px
