@@ -3,10 +3,13 @@
     tableSubTitle        css .main-content > div > div > div:first-child p
     table                css .main-content > div > div > div:first-child table
     tableHead            css .main-content > div > div > div:first-child table thead
-    tableHeaderCell      css .main-content > div > div > div:first-child table thead th
+    tableHeaders-*       css .main-content > div > div > div:first-child table thead th
     tableBody            css .main-content > div > div > div:first-child table tbody
     tableRow             css .main-content > div > div > div:first-child table tr
     tableCell            css .main-content > div > div > div:first-child table tr:first-child td
+
+@script
+    headerNames = ["ID", "Name", "City","Country","Salary"];
 
 = Table Layout =
     tableTitle, tableSubTitle:
@@ -28,13 +31,6 @@
         below tableHead 0px
         inside table 0px left right bottom
 
-    tableHead, tableHeaderCell:
-        height 48px
-
-    tableHeaderCell, tableCell:
-        width 76px
-        css text-align is "left"
-
     tableRow, tableCell:
         height 49px
 
@@ -50,5 +46,10 @@
     tableHead, tableBody:
         centered horizontally inside table 1px
 
-    tableHeaderCell:
-        inside tableHead 0px top left bottom
+    @forEach [tableHeaders-*] as headerCell, index as i
+            ${headerCell}:
+                css text-align is "left"
+                height 48px
+                text is "${headerNames[i-1]}"
+
+

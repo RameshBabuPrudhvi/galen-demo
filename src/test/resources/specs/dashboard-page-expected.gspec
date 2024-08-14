@@ -2,24 +2,37 @@
     usedSpaceCard        css .main-content > div > .row:nth-child(1) > div:nth-child(1) > .card.card-stats
     revenueCard          css .main-content > div > .row:nth-child(1) > div:nth-child(2) > .card.card-stats
     fixedIssuesCard      css .main-content > div > .row:nth-child(1) > div:nth-child(3) > .card.card-stats
+    cardTitle-*           xpath //div[@class='main-content']/div/div[1]//h3[@class='card-title']
+    cardCategory-*           xpath //div[@class='main-content']/div/div[1]//p[@class='card-category']
+
+@script
+    categories = ["Used Space", "Revenue", "Fixed Issues"];
 
 = General Layout =
     screen:
         inside screen 0px top
 
 = Card Layout =
+    usedSpaceCard, revenueCard, fixedIssuesCard:
+        width 23% of screen/width
+
     usedSpaceCard:
-        width 17% of screen/width
-        height approximately 163px
+        height approximately 128px
         below screen -403px
 
     revenueCard:
-        width 17% of screen/width
-        height approximately 161px
-        right-of usedSpaceCard 29px
+        height approximately 126px
+        right-of usedSpaceCard 30px
 
     fixedIssuesCard:
-        width 17% of screen/width
         height approximately 126px
         right-of revenueCard 30px
 
+    @forEach [cardTitle-*] as title
+        ${title}:
+            css font-size is "25px"
+
+    @forEach [cardCategory-*] as category, index as i
+            ${category}:
+                css font-size is "14px"
+                text is "${categories[i-1]}"
