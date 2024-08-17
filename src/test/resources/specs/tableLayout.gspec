@@ -9,7 +9,7 @@
     tableCell            css .main-content > div > div > div:first-child table tr:first-child td
 
 @script
-    headerNames = ["ID", "Name", "City","Country","Salary"];
+    headerNames = ["Trade ID", "Value Date", "Processing Org","Counterparty","Amount"];
 
 = Table Layout =
     tableTitle, tableSubTitle:
