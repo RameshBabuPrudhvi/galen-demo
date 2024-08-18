@@ -3,7 +3,7 @@
     cardCategory-*       xpath //div[@class='main-content']/div/div[1]//p[@class='card-category']
 
 @script
-    categories = ["Used Space", "Revenue", "Fixed Issues"];
+    categories = ["Total Number of Assets", "Average PE Ratio", "Average Dividend Yield"];
 
 = Card Font =
 

@@ -2,6 +2,7 @@ package org.example.tests;
 
 import com.galenframework.reports.GalenTestInfo;
 import com.galenframework.reports.HtmlReportBuilder;
+import org.example.TestContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -23,6 +24,7 @@ public class TestFixer {
     @Parameters("browser")
     @BeforeTest
     public void setUp(String browser) {
+        TestContext.setBrowserName(browser);
         if (browser.equalsIgnoreCase("firefox")) {
             System.setProperty("webdriver.gecko.driver", "src/test/resources/geckodriver.exe");
             driver = new FirefoxDriver();

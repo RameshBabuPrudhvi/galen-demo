@@ -2,8 +2,12 @@
     tableHead            css .main-content > div > div > div:first-child table thead
 
 = Table elements =
+@on chrome
     tableHead:
         css background-color is "rgba(37, 150, 190, 1)"
         css color is "rgba(255, 255, 255, 1)"
 
-
+@on firefox
+    tableHead:
+        css background-color is "rgba(37, 150, 190)"
+        css color is "rgba(255, 255, 255)"

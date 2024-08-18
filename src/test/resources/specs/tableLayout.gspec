@@ -29,10 +29,10 @@
 
     tableBody:
         below tableHead 0px
-        inside table 0px left right bottom
+        inside table ~ 0px left right bottom
 
     tableRow, tableCell:
-        height 49px
+        height ~ 49px
 
     tableRow:
         centered horizontally inside tableBody 1px

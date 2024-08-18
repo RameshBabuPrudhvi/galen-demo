@@ -13,7 +13,6 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 import java.io.IOException;
-import java.io.InvalidObjectException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -22,12 +21,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 public class GalenExtentReportsListener implements ITestListener {
 
-    private ExtentReports extent;
-    private final ThreadLocal<ExtentTest> test = new ThreadLocal<>();
+    private static ExtentReports extent;
+    private final ThreadLocal<ExtentTest> test = new InheritableThreadLocal<>();
     private static final String GALEN_REPORT_PATH = "target/galen-reports/";
 
     @Override
@@ -53,12 +53,12 @@ public class GalenExtentReportsListener implements ITestListener {
     @Override
     public void onFinish(ITestContext context) {
         extent.flush();
+
     }
 
     @Override
     public void onTestStart(ITestResult result) {
-        System.out.println(result.getParameters()[3].toString());
-        ExtentTest extentTest = extent.createTest(result.getParameters()[3].toString());
+        ExtentTest extentTest = extent.createTest(result.getParameters()[3].toString() + "-" + TestContext.getBrowserName() + UUID.randomUUID());
         test.set(extentTest);
     }
 
@@ -66,29 +66,36 @@ public class GalenExtentReportsListener implements ITestListener {
     public void onTestSuccess(ITestResult result) {
         logGalenLayoutReport(test.get(), result);
         test.get().pass("Test passed");
+        test.remove();
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
         logGalenLayoutReport(test.get(), result);
         test.get().fail(result.getName());
+        test.remove();
     }
 
     @Override
     public void onTestSkipped(ITestResult result) {
         test.get().skip(result.getThrowable());
+        test.remove();
     }
 
     @Override
     public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
         // Not implemented
+        test.remove();
     }
 
-    private void logGalenLayoutReport(ExtentTest extentTest, ITestResult result) {
-        LayoutReport layoutReport = (LayoutReport) result.getTestContext().getAttribute("layoutReport");
+    private synchronized void logGalenLayoutReport(ExtentTest extentTest, ITestResult result) {
+        var browserName = TestContext.getBrowserName();
+        LayoutReport layoutReport = (LayoutReport) result.getTestContext().getAttribute("layoutReport-" + browserName);
         if (layoutReport != null) {
 
             for (LayoutSection section : layoutReport.getSections()) {
+                extentTest.info("Layout Report for " + browserName + " - " + result.getMethod().getMethodName());
+
                 ExtentTest sectionTest = extentTest.createNode("Section: " + section.getName());
 
                 // Create a map to group results by object
