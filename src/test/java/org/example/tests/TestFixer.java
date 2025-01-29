@@ -18,7 +18,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class TestFixer {
     public WebDriver driver;
     private static final String REPORT_PATH = "target/galen-reports";
-    public boolean isCurrentEnvironment = true;
+    public boolean isCurrentEnvironment = false;
     public static List<GalenTestInfo> testInfo = new CopyOnWriteArrayList<>();
     public static final String BASE_URL = "http://localhost:4200/#/";
 
