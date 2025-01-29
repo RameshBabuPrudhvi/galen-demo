@@ -33,7 +33,7 @@ public class TestFixer {
             driver = new ChromeDriver();
         }
         driver.manage().window().maximize();
-        //driver.manage().window().setSize(new Dimension(1200, 800));
+       // driver.manage().window().setSize(new Dimension(1200, 800));
     }
 
     @AfterTest
