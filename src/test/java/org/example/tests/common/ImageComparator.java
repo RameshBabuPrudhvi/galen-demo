@@ -1,4 +1,4 @@
-package org.example.tests;
+package org.example.tests.common;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

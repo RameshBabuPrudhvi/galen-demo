@@ -16,10 +16,11 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class TestFixer {
-    WebDriver driver;
-    static final String REPORT_PATH = "target/galen-reports";
-    boolean isCurrentEnvironment = true;
-    static List<GalenTestInfo> testInfo = new CopyOnWriteArrayList<>();
+    public WebDriver driver;
+    private static final String REPORT_PATH = "target/galen-reports";
+    public boolean isCurrentEnvironment = true;
+    public static List<GalenTestInfo> testInfo = new CopyOnWriteArrayList<>();
+    public static final String BASE_URL = "http://localhost:4200/#/";
 
     @Parameters("browser")
     @BeforeTest
