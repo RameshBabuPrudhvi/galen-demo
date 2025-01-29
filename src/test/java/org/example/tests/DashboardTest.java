@@ -1,15 +1,8 @@
 package org.example.tests;
 
-import com.galenframework.api.Galen;
-import com.galenframework.reports.GalenTestInfo;
-import org.example.TestContext;
 import org.testng.ITestContext;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-import java.util.List;
-
-import static org.testng.Assert.assertEquals;
 
 public class DashboardTest extends VisualTest {
 
