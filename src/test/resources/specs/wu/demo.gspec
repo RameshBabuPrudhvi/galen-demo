@@ -1,0 +1,23 @@
+@objects
+    sendMoneyToLabel      id label_country_selection_title
+    sendCountry        id input_country_selection_search
+    searchIcon     id icon_country_selection_search
+    continueButton  id btn_country_selection_continue
+
+= Skeleton =
+    searchIcon:
+        below sendMoneyToLabel 16px
+        height 24px
+        inside screen >= 8px right
+        right-of sendCountry 7px
+        width 24px
+
+    sendMoneyToLabel:
+        centered horizontally inside screen 1px
+        height 48px
+        inside screen 8px left right
+
+    sendCountry:
+        below sendMoneyToLabel 17px
+        height 30px
+        inside screen 8px left

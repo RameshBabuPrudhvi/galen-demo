@@ -1,11 +1,15 @@
 package org.example.tests;
 
+import org.example.DriverManager;
+import org.example.GalenHelper;
 import org.testng.ITestContext;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class DashboardTest extends VisualTest {
+public class DashboardTest extends TestFixer {
+    public boolean isCurrentEnvironment = false;
 
+    public static final String BASE_URL = "http://localhost:4200/#/";
     @DataProvider(name = "layoutTestData")
     public Object[][] layoutTestData() {
         String dashboardUrl = BASE_URL + (isCurrentEnvironment ? "dashboard" : "dashboard-b");
@@ -23,7 +27,8 @@ public class DashboardTest extends VisualTest {
     }
 
     @Test(dataProvider = "layoutTestData")
-    public void testPageLayout(ITestContext context, String url, String specPath, String testName, String groupName) throws Exception {
-        verifyPageLayout(context, url, specPath, testName, groupName);
+    public void testPageLayout(ITestContext context, String url, String specPath, String testName, String groupName) {
+        DriverManager.getDriver().get(url);
+        GalenHelper.verifyPageLayout(context, specPath, testName, groupName);
     }
 }

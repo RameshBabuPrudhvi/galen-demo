@@ -1,29 +1,28 @@
-package org.example.tests;
+package org.example;
 
 import com.galenframework.api.Galen;
 import com.galenframework.reports.GalenTestInfo;
-import org.example.TestContext;
+import lombok.SneakyThrows;
 import org.testng.ITestContext;
 
 import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 
-public class VisualTest extends TestFixer {
+public class GalenHelper {
 
-    public void verifyPageLayout(ITestContext context, String url, String specPath, String testName, String groupName) throws Exception {
-        var browserName = TestContext.getBrowserName();
-        var newTestName = testName + "-" + browserName;
+    @SneakyThrows
+    public static void verifyPageLayout(ITestContext context, String specPath, String testName, String groupName) {
+        var driver = DriverManager.getDriver();
+        var browserName = driver.getClass().getSimpleName().toLowerCase().replace("driver", "");
+        String newTestName = testName + "-" + browserName;
 
-        driver.get(url);
-        // Run the layout check and create a report
-        var layoutReport = Galen.checkLayout(driver, specPath, List.of("desktop"));
+        var layoutReport = Galen.checkLayout(driver, specPath, List.of("desktop", browserName));
         context.setAttribute("layoutReport-" + browserName, layoutReport);
         var test = GalenTestInfo.fromString(newTestName, List.of(groupName));
 
         test.getReport().layout(layoutReport, newTestName);
-
-        testInfo.add(test);
+        GalenReporter.addTestInfo(test);
 
         if (layoutReport.errors() > 0) {
             var errorMessage = new StringBuilder("Layout errors found: ");

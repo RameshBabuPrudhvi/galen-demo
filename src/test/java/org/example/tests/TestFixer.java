@@ -1,54 +1,29 @@
 package org.example.tests;
 
-import com.galenframework.reports.GalenTestInfo;
-import com.galenframework.reports.HtmlReportBuilder;
-import org.example.TestContext;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.example.DriverManager;
+import org.example.GalenReporter;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 public class TestFixer {
-    public WebDriver driver;
-    private static final String REPORT_PATH = "target/galen-reports";
-    public boolean isCurrentEnvironment = false;
-    public static List<GalenTestInfo> testInfo = new CopyOnWriteArrayList<>();
-    public static final String BASE_URL = "http://localhost:4200/#/";
-
     @Parameters("browser")
     @BeforeTest
     public void setUp(String browser) {
-        TestContext.setBrowserName(browser);
-        if (browser.equalsIgnoreCase("firefox")) {
-            System.setProperty("webdriver.gecko.driver", "src/test/resources/geckodriver.exe");
-            driver = new FirefoxDriver();
-        } else {
-            System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
-            driver = new ChromeDriver();
-        }
-        driver.manage().window().maximize();
-       // driver.manage().window().setSize(new Dimension(1200, 800));
+        DriverManager.initializeDriver(browser);
     }
 
     @AfterTest
     public void tearDown() {
-        // Quit the driver
-        if (driver != null) {
-            driver.quit();
-        }
-
+        DriverManager.quitDriver();
     }
 
     @AfterSuite
     public void afterSuite() throws IOException {
-        new HtmlReportBuilder().build(testInfo, REPORT_PATH);
+        GalenReporter.generateReport();
     }
 
 }
