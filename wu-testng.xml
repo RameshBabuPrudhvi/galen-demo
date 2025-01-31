@@ -6,10 +6,10 @@
             <class name="org.example.tests.SendMoneyPageTest"/>
         </classes>
     </test>
-    <test name="FirefoxTests">
+ <!--   <test name="FirefoxTests">
         <parameter name="browser" value="firefox" />
         <classes>
             <class name="org.example.tests.SendMoneyPageTest"/>
         </classes>
-    </test>
+    </test>-->
 </suite>

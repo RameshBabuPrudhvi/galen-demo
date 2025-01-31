@@ -1,0 +1,52 @@
+@objects
+    sender      id input-estimate_details_sender_field
+    senderCurrency    id currency-estimate_details_sender_field
+    receiver        id input-estimate_details_receiver_field
+    receiverCurrency     id currency-estimate_details_receiver_field
+    flagIcon        xpath //span[contains(@id,'id_flag')]
+    payBy     id select-dropdown_estimate_details_payin
+    deliveryBy     id select-dropdown_estimate_details_payout
+    continueButton  id btn_estimate_details_continue
+
+= Skeleton =
+    senderCurrency:
+        left-of flagIcon
+        right-of sender 8px
+        width 58px
+
+    sender, receiver:
+        height 42px
+
+    sender, senderCurrency:
+        above payBy
+
+    receiver, receiverCurrency:
+        above deliveryBy
+
+    receiver:
+        left-of receiverCurrency 8px
+        right-of senderCurrency
+
+    deliveryBy:
+        below flagIcon 11px
+        right-of payBy
+
+    senderCurrency, receiverCurrency:
+        height 22px
+
+    flagIcon:
+        image file US.png
+
+    payBy, deliveryBy:
+        above continueButton
+        height 61px
+
+    sender, payBy, continueButton, senderCurrency, flagIcon, receiver, deliveryBy, receiverCurrency:
+        inside screen
+
+    receiverCurrency:
+        width 62px
+
+    continueButton:
+        height 54px
+
