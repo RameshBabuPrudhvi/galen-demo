@@ -1,0 +1,15 @@
+@objects
+    country-*       css #lItem_country_selection_search_result
+
+= country Alignment =
+
+    country-1:
+        aligned horizontally all country-2 2px
+        aligned vertically all country-4
+
+    country-2:
+        aligned horizontally all country-3
+        aligned vertically all country-5
+
+    country-3:
+        aligned vertically all country-8

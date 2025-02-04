@@ -1,0 +1,15 @@
+@objects
+    countries-*       xpath //span[contains(@class,'SearchFilter_filterItemLabel_')]
+    sendMoneyToLabel      id label_country_selection_title
+
+@script
+    categories = ["Total Number of Assets", "Average PE Ratio", "Average Dividend Yield"];
+
+= Send Money =
+    sendMoneyToLabel:
+        css font-size is "32px"
+        css font-family is "EuclidWUMedium"
+
+    @forEach [countries-*] as country
+        ${country}:
+            css font-size is "16px"

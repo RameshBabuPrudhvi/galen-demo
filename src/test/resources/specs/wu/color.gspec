@@ -1,0 +1,22 @@
+@objects
+    countries-*       xpath //span[contains(@class,'SearchFilter_filterItemLabel_')]
+    sendMoneyToLabel      id label_country_selection_title
+
+= Send Money =
+    @on firefox
+        sendMoneyToLabel:
+            css background-color is "rgba(0, 0, 0, 0)"
+            css color is "rgb(0, 0, 0)"
+
+    @on chrome
+        sendMoneyToLabel:
+            css background-color is "rgba(0, 0, 0, 0)"
+            css color is "rgba(0, 0, 0, 1)"
+    @on chrome
+        @forEach [countries-*] as country
+            ${country}:
+                css color is "rgba(8, 89, 166, 1)"
+    @on firefox
+        @forEach [countries-*] as country
+            ${country}:
+                css color is "rgb(8, 89, 166)"

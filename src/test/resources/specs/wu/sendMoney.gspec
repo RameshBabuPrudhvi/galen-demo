@@ -12,7 +12,7 @@
     senderCurrency:
         left-of flagIcon
         right-of sender 8px
-        width 58px
+        width ~ 58px
 
     sender, receiver:
         height 42px
@@ -27,19 +27,24 @@
         left-of receiverCurrency 8px
         right-of senderCurrency
 
-    deliveryBy:
-        below flagIcon 11px
-        right-of payBy
-
+    @on chrome
+        deliveryBy:
+            below flagIcon 11px
+            right-of payBy
+    @on firefox
+        deliveryBy:
+            below flagIcon 167px
+            right-of payBy
+            
     senderCurrency, receiverCurrency:
         height 22px
 
     flagIcon:
-        image file US.png
+        css background-image contains "US.png"
 
     payBy, deliveryBy:
         above continueButton
-        height 61px
+        height ~ 61px
 
     sender, payBy, continueButton, senderCurrency, flagIcon, receiver, deliveryBy, receiverCurrency:
         inside screen
