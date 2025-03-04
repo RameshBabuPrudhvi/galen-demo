@@ -5,6 +5,7 @@ import org.example.GalenReporter;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import java.io.IOException;
@@ -12,7 +13,7 @@ import java.io.IOException;
 public class TestFixer {
     @Parameters("browser")
     @BeforeTest
-    public void setUp(String browser) {
+    public void setUp(@Optional("chrome") String browser) {
         DriverManager.initializeDriver(browser);
     }
 
